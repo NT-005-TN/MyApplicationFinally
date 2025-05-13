@@ -28,10 +28,12 @@ fun task1(celsius: Int) {
 ○ старше 60 лет — 20 ₽.
 */
 fun task2(age: Int){
-    if(age <= 7) println(0)
-    else if(age in 8..17)  println(15)
-    else if(age in 18..60) println(30)
-    else println(20)
+    when (age){
+    in 0..7 -> println("0 р")
+    in 8..17 -> println("15 p")
+    in 18..60 -> println("30 p")
+    in 60..150 -> println("20 p")
+    }
 }
 
 /*
@@ -56,7 +58,7 @@ fun task3(month: Int){
 случае.
 */
 fun task4(ch: Char){
-    if ("AEIOUYaeiouy".contains(ch.toString())) println("YES")
+    if (ch in "AEIOUYaeiouy") println("YES")
     else println("NO")
 }
 
@@ -66,8 +68,8 @@ fun task4(ch: Char){
 Выведите в одной строке через пробел значения n × 1, n × 2, …, n × 10.
 */
 fun task5(n: Int){
-    for(i in 1..10) print(" " + n*i)
-    println()
+    var res = (1..n).map{n * it}
+    println(res.joinToString(separator = " "))
 }
 
 /*
