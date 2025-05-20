@@ -98,7 +98,7 @@ fun task16(){
  */
 
 fun task17(){
-    var drones = listOf("AX23X", "BT77", "QX90X").filter{ it.endsWith("X") && it.length >= 5 }.map(String::lowercase)
+    val drones = listOf("AX23X", "BT77", "QX90X").filter{ it.endsWith("X") && it.length >= 5 }.map(String::lowercase)
     println(drones)
 }
 
@@ -111,13 +111,20 @@ fun task17(){
 числа
  */
 
-fun task18(){
+fun task18() {
     fun computeFibonacci(n: Int?): Int? {
         if (n == null || n < 0) return null
-        return if (n <= 1) n else computeFibonacci(n - 1)!! + computeFibonacci(n - 2)!!
+        if (n <= 1) return n
+
+        val a = computeFibonacci(n - 1)
+        val b = computeFibonacci(n - 2)
+
+        return if (a != null && b != null) a + b else null
     }
+
     println(computeFibonacci(9))
 }
+
 
 /*
 9. Создайте функцию findMinCharge(levels: List<Int>?): Int?, которая возвращает
@@ -133,9 +140,10 @@ fun task19(){
         if(levels != null){
             var res = levels?.filterNotNull()
                 res = res?.filter{ it > 0 }
-                return(res?.minOrNull())
+                if (res?.minOrNull() != null) return res?.minOrNull()
+                else return null
         } else {
-            return (null)
+            return null
         }
     }
     var lst = emptyList<Int>()
