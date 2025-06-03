@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Планировщик задач</string>
+
+    <string name="title_task_list">Задачи</string>
+    <string name="button_add_task">Добавить задачу</string>
+
+    <string name="title_add_task">Новая задача</string>
+    <string name="hint_task_title">Введите название задачи</string>
+    <string name="button_save_task">Сохранить</string>
+
+    <string name="title_stats">Статистика</string>
+    <string name="text_total_tasks">Всего задач: </string>
+    <string name="text_completed_tasks">Выполнено задач: </string>
+
+    <string name="text_stats">Статистика</string>
+    <string name="text_main_menu">К задачам</string>
 </resources>

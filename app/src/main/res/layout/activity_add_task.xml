@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/add_task"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_medium"
+    >
+
+    <TextView
+        android:id="@+id/titleAddText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_add_task"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/padding_gigant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_small"
+        android:hint="@string/hint_task_title"
+        android:inputType="text"
+        android:minHeight="@dimen/min_height"
+        app:layout_constraintTop_toBottomOf="@+id/titleAddText"
+        />
+
+    <Button
+        android:id="@+id/btnSaveTask"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/padding_small"
+        android:layout_height="@dimen/button_height"
+        android:text="@string/button_save_task"
+        app:layout_constraintTop_toBottomOf="@+id/editTaskTitle"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

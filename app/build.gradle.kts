@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "ru.AnastTruh.helloandroid"
+    namespace = "ru.anasttruh.helloandroid"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "ru.AnastTruh.helloandroid"
+        applicationId = "ru.anasttruh.helloandroid"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -35,8 +35,8 @@ android {
     }
 }
 
-dependencies {
 
+dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
