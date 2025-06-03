@@ -110,7 +110,7 @@ fun task17(){
 выведите результаты для нескольких значений n, включая null и отрицательные
 числа
  */
-
+//1212122121121222222222222222222
 fun task18() {
     fun computeFibonacci(n: Int?): Int? {
         if (n == null || n < 0) return null
