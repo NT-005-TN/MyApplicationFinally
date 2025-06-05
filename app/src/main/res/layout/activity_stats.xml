@@ -2,19 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/stats"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:layout_marginTop="@dimen/padding_gigant"
-    android:padding="@dimen/padding_medium">
-
+             android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title_stats"
+        android:layout_marginTop="@dimen/padding_gigant"
+        android:text="@string/text_stats"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,33 +19,33 @@
 
     <TextView
         android:id="@+id/textTotalTasks"
+        android:layout_marginTop="@dimen/padding_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_small"
         android:text="@string/text_total_tasks"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
+        android:layout_marginTop="@dimen/padding_small"
         android:id="@+id/textCompletedTasks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="@dimen/padding_small"
+        android:textSize="20sp"
         android:text="@string/text_completed_tasks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textTotalTasks" />
 
-    <Button
-        android:id="@+id/btnMainMenu"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/button_height"
-        android:text="@string/text_main_menu"
-        android:layout_marginTop="@dimen/padding_small"
-        app:layout_constraintTop_toBottomOf="@+id/textCompletedTasks"
-        tools:layout_editor_absoluteX="16dp" />
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        android:id="@+id/materialCalendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCompletedTasks" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

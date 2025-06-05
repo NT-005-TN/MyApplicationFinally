@@ -6,6 +6,7 @@
 
     <string name="title_add_task">Новая задача</string>
     <string name="hint_task_title">Введите название задачи</string>
+    <string name="hint_task_description">Введите описание задачи</string>
     <string name="button_save_task">Сохранить</string>
 
     <string name="title_stats">Статистика</string>
@@ -14,4 +15,9 @@
 
     <string name="text_stats">Статистика</string>
     <string name="text_main_menu">К задачам</string>
+    <string name="text_deadline">Выберите срок выполнения задачи</string>
+
+    <string name="text_total_tasks_with_value">Всего задач: %d</string>
+    <string name="text_completed_tasks_with_value">Выполнено задач: %d</string>
+    <string name="button_task_added">Задача добавлена!</string>
 </resources>

@@ -1,33 +1,24 @@
 package ru.AnastTruh.helloandroid
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import ru.anasttruh.helloandroid.R
+import androidx.core.content.ContextCompat
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView
+
 
 class StatsActivity : AppCompatActivity() {
 
-    @SuppressLint("SetTextI18n", "MissingInflatedId")
-    override fun onCreate(savedInstanceState: Bundle?){
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stats)
 
-        val total = intent.getIntExtra("total", 0)
-        val completed = intent.getIntExtra("completed", 0)
-
+        val totalTasks = intent.getIntExtra("totalTasks", 0)
         findViewById<TextView>(R.id.textTotalTasks).text =
-            "Всего задач: $total"
+            "Общее число задач: $totalTasks"
 
-        findViewById<TextView>(R.id.textCompletedTasks).text =
-            "Выполнено: $completed"
-
-        val button = findViewById<Button>(R.id.btnMainMenu)
-        button.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivityForResult(intent, 1)
-        }
+        // Дополнительно: можно передать список дат из задач и выделить их в календаре
+        val calendarView = findViewById<MaterialCalendarView>(R.id.materialCalendarView)
+        calendarView.selectionColor = ContextCompat.getColor(this, android.R.color.holo_blue_dark)
     }
 }

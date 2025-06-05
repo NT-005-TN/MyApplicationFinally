@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "ru.anasttruh.helloandroid"
+    namespace = "ru.AnastTruh.helloandroid"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "ru.anasttruh.helloandroid"
+        applicationId = "ru.AnastTruh.helloandroid"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -42,7 +42,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.filament.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.material.calendarview)
 }

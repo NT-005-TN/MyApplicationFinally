@@ -1,55 +1,44 @@
 package ru.AnastTruh.helloandroid
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import ru.anasttruh.helloandroid.R
 
-class MainActivity : AppCompatActivity(){
-    private val taskList = mutableListOf<String>()
+class MainActivity : AppCompatActivity() {
 
-    private lateinit var adapter: ArrayAdapter<String>
-    private lateinit var listView: ListView
+    private val taskList = mutableListOf<Task>()
+    private lateinit var adapter: TaskAdapter
 
-    @SuppressLint("MissingInflatedId")
-    override fun onCreate(savedInstanceState: Bundle?){
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, taskList)
-
-        listView = findViewById(R.id.tskListView)
+        val listView = findViewById<ListView>(R.id.listView)
+        adapter = TaskAdapter(this, taskList)
         listView.adapter = adapter
 
-        val button = findViewById<Button>(R.id.btnAddTask)
-        button.setOnClickListener {
-            val intent = Intent(this, AddTaskActivity::class.java)
-            startActivityForResult(intent, 1)
+        findViewById<Button>(R.id.btnAddTask).setOnClickListener {
+            startActivityForResult(Intent(this, AddTaskActivity::class.java), 1)
         }
 
-        val buttonStats = findViewById<Button>(R.id.btnStats)
-        buttonStats.setOnClickListener {
+        findViewById<Button>(R.id.btnStats).setOnClickListener {
             val intent = Intent(this, StatsActivity::class.java)
-            startActivityForResult(intent, 1)
+            intent.putExtra("totalTasks", taskList.size)
+            startActivity(intent)
         }
-
     }
 
-    override fun onActivityResult(
-        requestCode: Int,
-        resultCode: Int,
-        data: Intent?
-    ) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            val title = data.getStringExtra("title")
+            val description = data.getStringExtra("description")
+            val deadline = data.getStringExtra("deadline")
 
-        if (requestCode == 1 && resultCode == RESULT_OK){
-            val task = data?.getStringExtra("task")
-            if (!task.isNullOrEmpty()){
-                taskList.add(task)
+            if (!title.isNullOrEmpty()) {
+                taskList.add(Task(title, description ?: "", deadline ?: ""))
                 adapter.notifyDataSetChanged()
             }
         }

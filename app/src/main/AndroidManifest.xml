@@ -23,6 +23,7 @@
 
         <activity android:name="ru.AnastTruh.helloandroid.AddTaskActivity" />
         <activity android:name="ru.AnastTruh.helloandroid.StatsActivity" />
+
     </application>
 
 </manifest>
