@@ -5,16 +5,18 @@
     android:orientation="vertical"
     android:padding="@dimen/padding_medium">
 
-    <TextView
-        android:id="@+id/tvStats"
+    <TextView android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/btnBack"
+    <TextView android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_medium"
-        android:text="@string/text_back" />
+        android:layout_marginTop="@dimen/padding_small" />
+
+    <TextView android:id="@+id/tvDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_small" />
 </LinearLayout>

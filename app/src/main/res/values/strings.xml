@@ -20,4 +20,18 @@
     <string name="text_total_tasks_with_value">Всего задач: %d</string>
     <string name="text_completed_tasks_with_value">Выполнено задач: %d</string>
     <string name="button_task_added">Задача добавлена!</string>
+
+    <string name="stats_text">Выполнено %1$d из %2$d задач</string>
+    <string name="titleOfTask">Название</string>
+    <string name="description">Описание</string>
+    <string name="data">Дата (ГГГГ-ММ-ДД)</string>
+    <string name="text_create">Создать</string>
+    <string name="text_createTask">Создать задачу</string>
+    <string name="text_statisitcs">Статистика</string>
+    <string name="text_listOfTasks">Список задач</string>
+    <string name="text_back">Назад</string>
+    <string name="headOfList">Шапка списка задач</string>
+    <string name="listOfTasksText">Список задач по названиям</string>
+    <string name="listOfNames">Список названий задач</string>
+    <string name="nameOfTask">Название задачи</string>
 </resources>

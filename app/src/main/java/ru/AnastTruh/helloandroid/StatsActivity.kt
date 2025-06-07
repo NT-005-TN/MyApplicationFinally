@@ -1,24 +1,23 @@
 package ru.AnastTruh.helloandroid
 
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import com.prolificinteractive.materialcalendarview.MaterialCalendarView
-
+import ru.AnastTruh.helloandroid.databinding.ActivityStatsBinding
 
 class StatsActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityStatsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_stats)
+        binding = ActivityStatsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val totalTasks = intent.getIntExtra("totalTasks", 0)
-        findViewById<TextView>(R.id.textTotalTasks).text =
-            "Общее число задач: $totalTasks"
+        val done = intent.getIntExtra("done", 0)
+        val total = intent.getIntExtra("total", 0)
 
-        // Дополнительно: можно передать список дат из задач и выделить их в календаре
-        val calendarView = findViewById<MaterialCalendarView>(R.id.materialCalendarView)
-        calendarView.selectionColor = ContextCompat.getColor(this, android.R.color.holo_blue_dark)
+        binding.tvStats.text = getString(R.string.stats_text, done, total)
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 }

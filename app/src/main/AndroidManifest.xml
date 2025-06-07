@@ -21,8 +21,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="ru.AnastTruh.helloandroid.AddTaskActivity" />
         <activity android:name="ru.AnastTruh.helloandroid.StatsActivity" />
+        <activity android:name="ru.AnastTruh.helloandroid.TaskDetailActivity" />
+        <activity android:name="ru.AnastTruh.helloandroid.CreateTaskActivity" />
 
     </application>
 

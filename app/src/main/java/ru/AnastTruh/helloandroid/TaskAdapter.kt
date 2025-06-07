@@ -1,24 +1,55 @@
-package ru.AnastTruh.helloandroid
-
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import ru.AnastTruh.helloandroid.Task
+import ru.AnastTruh.helloandroid.databinding.ItemTaskBinding
 
-class TaskAdapter(context: Context, tasks: List<Task>) :
-    ArrayAdapter<Task>(context, 0, tasks) {
+class TaskAdapter(
+    private var tasks: List<Task>,
+    private val onClick: (Task) -> Unit
+) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_task, parent, false)
+    private var filteredTasks: List<Task> = tasks.toList()
 
-        val task = getItem(position)
+    class TaskViewHolder(val binding: ItemTaskBinding) : RecyclerView.ViewHolder(binding.root)
 
-        view.findViewById<TextView>(R.id.task_title).text = task?.title
-        view.findViewById<TextView>(R.id.task_description).text = task?.description
-        view.findViewById<TextView>(R.id.task_deadline).text = task?.deadline
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
+        val binding = ItemTaskBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return TaskViewHolder(binding)
+    }
 
-        return view
+    override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
+        val task = filteredTasks[position]
+        holder.binding.tvTitle.text = task.title
+        holder.binding.tvDescription.text = task.description
+        holder.binding.tvDescription.visibility = if (task.isExpanded) View.VISIBLE else View.GONE
+
+        holder.binding.root.setOnClickListener {
+            task.isExpanded = !task.isExpanded
+            notifyItemChanged(position)
+        }
+
+        holder.binding.root.setOnLongClickListener {
+            onClick(task)
+            true
+        }
+    }
+
+    override fun getItemCount(): Int = filteredTasks.size
+
+    fun updateTasks(newTasks: List<Task>) {
+        tasks = newTasks
+        filteredTasks = newTasks
+        notifyDataSetChanged()
+    }
+
+    fun filter(query: String?) {
+        filteredTasks = if (query.isNullOrEmpty()) {
+            tasks
+        } else {
+            tasks.filter { it.title.contains(query, ignoreCase = true) }
+        }
+        notifyDataSetChanged()
     }
 }

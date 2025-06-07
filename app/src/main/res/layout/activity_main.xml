@@ -1,65 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.AnastTruh.helloandroid.MainActivity"
-    android:padding="@dimen/padding_medium"
-    >
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnNewTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_createTask"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/padding_medium"
+        android:layout_marginHorizontal="@dimen/padding_medium"/>
+
+    <Button
+        android:id="@+id/btnStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_statisitcs"
+        app:layout_constraintTop_toBottomOf="@id/btnNewTask"
+        android:layout_marginHorizontal="@dimen/padding_medium"/>
+
+    <!-- Guideline (вертикальная линия для выравнивания текста) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="420dp" />
+
+    <!-- Группа элементов шапки -->
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/headerGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="headerTitle" />
+
+    <!-- Заголовок шапки -->
+    <TextView
+        android:id="@+id/headerTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/headOfList"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/btnStats"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline"
+        android:layout_marginTop="@dimen/padding_medium"
+        android:layout_marginHorizontal="@dimen/padding_medium"/>
+
+    <!-- Разделительная линия -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        app:layout_constraintTop_toBottomOf="@id/headerTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginVertical="@dimen/padding_small"/>
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:id="@+id/titleOnlyNames"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_task_list"
-        android:textSize="24sp"
+        android:text="@string/listOfTasksText"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        android:layout_marginTop="@dimen/padding_medium"
+        android:layout_marginStart="@dimen/padding_medium"/>
+
+    <!-- RecyclerView только с названиями задач -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewNames"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/normal_height"
+        android:contentDescription="@string/listOfNames"
+        app:layout_constraintTop_toBottomOf="@id/titleOnlyNames"
+        app:layout_constraintBottom_toTopOf="@id/recyclerView"
+        android:layout_marginHorizontal="@dimen/padding_medium"/>
+
+    <!-- Основной RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/normal_height"
+        android:contentDescription="@string/text_listOfTasks"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewNames"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/padding_large"/>
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_small"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-        <Button
-            android:id="@+id/btnAddTask"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/button_height"
-            android:layout_marginTop="@dimen/padding_small"
-            android:minHeight="@dimen/min_height"
-            android:text="@string/button_add_task"
-            android:layout_marginEnd="@dimen/padding_medium" />
-
-        <Button
-            android:id="@+id/btnStats"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/button_height"
-            android:layout_marginTop="@dimen/padding_small"
-            android:minHeight="@dimen/min_height"
-            android:text="@string/text_stats" />
-    </LinearLayout>
+        android:layout_margin="@dimen/padding_medium"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-

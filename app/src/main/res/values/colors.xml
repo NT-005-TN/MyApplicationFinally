@@ -7,4 +7,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="green">#4CAF50</color>
     <color name="red">#F44336</color>
+    <color name="primary">#6200EE</color>
+    <color name="hint">#546E7A</color>
+    <color name="line">#CCCCCC</color>
 </resources>
