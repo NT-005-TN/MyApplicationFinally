@@ -1,102 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnNewTask"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/text_createTask"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/padding_medium"
-        android:layout_marginHorizontal="@dimen/padding_medium"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-    <Button
-        android:id="@+id/btnStats"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/text_statisitcs"
-        app:layout_constraintTop_toBottomOf="@id/btnNewTask"
-        android:layout_marginHorizontal="@dimen/padding_medium"/>
-
-    <!-- Guideline (вертикальная линия для выравнивания текста) -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="420dp" />
-
-    <!-- Группа элементов шапки -->
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/headerGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        app:constraint_referenced_ids="headerTitle" />
-
-    <!-- Заголовок шапки -->
-    <TextView
-        android:id="@+id/headerTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/headOfList"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/btnStats"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
-        android:layout_marginTop="@dimen/padding_medium"
-        android:layout_marginHorizontal="@dimen/padding_medium"/>
-
-    <!-- Разделительная линия -->
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/line"
-        app:layout_constraintTop_toBottomOf="@id/headerTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginVertical="@dimen/padding_small"/>
-
-    <TextView
-        android:id="@+id/titleOnlyNames"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/listOfTasksText"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/divider"
-        android:layout_marginTop="@dimen/padding_medium"
-        android:layout_marginStart="@dimen/padding_medium"/>
-
-    <!-- RecyclerView только с названиями задач -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewNames"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/normal_height"
-        android:contentDescription="@string/listOfNames"
-        app:layout_constraintTop_toBottomOf="@id/titleOnlyNames"
-        app:layout_constraintBottom_toTopOf="@id/recyclerView"
-        android:layout_marginHorizontal="@dimen/padding_medium"/>
-
-    <!-- Основной RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/normal_height"
-        android:contentDescription="@string/text_listOfTasks"
-        app:layout_constraintTop_toBottomOf="@id/recyclerViewNames"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="@dimen/padding_medium"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        app:navGraph="@navigation/nav_graph"
+        app:defaultNavHost="true" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

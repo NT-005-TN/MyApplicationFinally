@@ -34,4 +34,6 @@
     <string name="listOfTasksText">Список задач по названиям</string>
     <string name="listOfNames">Список названий задач</string>
     <string name="nameOfTask">Название задачи</string>
+    <string name="Edit">Редактировать</string>
+    <string name="Delete">Удалить</string>
 </resources>
