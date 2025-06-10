@@ -36,7 +36,7 @@
                 android:id="@+id/checkDone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Выполнено"
+                android:text="@string/compl"
                 android:layout_margin="4dp" />
 
 
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Редактировать"
+                android:contentDescription="@string/edit"
                 android:src="@android:drawable/ic_menu_edit"
                 android:layout_margin="4dp"/>
 
@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Удалить"
+                android:contentDescription="@string/del"
                 android:src="@android:drawable/ic_menu_delete"
                 android:layout_margin="4dp"/>
         </LinearLayout>

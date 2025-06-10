@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/mainFragment">
 
+    <!-- MainFragment -->
     <fragment
         android:id="@+id/mainFragment"
         android:name="ru.AnastTruh.helloandroid.MainFragment"
@@ -20,6 +21,7 @@
             app:destination="@id/taskDetailFragment" />
     </fragment>
 
+    <!-- CreateTaskFragment -->
     <fragment
         android:id="@+id/createTaskFragment"
         android:name="ru.AnastTruh.helloandroid.CreateTaskFragment"
@@ -28,13 +30,14 @@
         <argument
             android:name="taskToEdit"
             app:argType="ru.AnastTruh.helloandroid.Task"
-            android:nullable="true" />
+            app:nullable="true" />
         <argument
             android:name="taskPosition"
             app:argType="integer"
             android:defaultValue="-1" />
     </fragment>
 
+    <!-- StatsFragment -->
     <fragment
         android:id="@+id/statsFragment"
         android:name="ru.AnastTruh.helloandroid.StatsFragment"
@@ -48,9 +51,11 @@
             app:argType="integer" />
         <argument
             android:name="tasks"
-            app:argType="ru.AnastTruh.helloandroid.Task[]" />
+            app:argType="ru.AnastTruh.helloandroid.Task"
+            />
     </fragment>
 
+    <!-- TaskDetailFragment -->
     <fragment
         android:id="@+id/taskDetailFragment"
         android:name="ru.AnastTruh.helloandroid.TaskDetailFragment"

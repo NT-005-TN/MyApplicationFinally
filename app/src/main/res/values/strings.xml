@@ -36,4 +36,27 @@
     <string name="nameOfTask">Название задачи</string>
     <string name="Edit">Редактировать</string>
     <string name="Delete">Удалить</string>
+    <string name="titleTask">Название задачи</string>
+    <string name="desc">Описание</string>
+    <string name="ddl">Дата дедлайна (например, 2025-06-15)</string>
+    <string name="edot">Создать</string>
+    <string name="tasks">Задачи</string>
+    <string name="create">Создать задачу</string>
+    <string name="statistics">Статистика</string>
+    <string name="comp">Выполнено задач</string>
+    <string name="back">Назад</string>
+    <string name="titleF">Заголовок</string>
+    <string name="date">Дата</string>
+    <string name="descr">Описание</string>
+    <string name="compl">Выполнено</string>
+    <string name="edit">Редактировать</string>
+    <string name="del">Удалить</string>
+    <string name="des">Описание</string>
+    <string name="dsta">Дата</string>
+    <string name="tit">Заголовок</string>
+    <string name="complet">Выполнено задач</string>
+    <string name="bac">Назад</string>
+    <string name="de">Описание</string>
+    <string name="cret">Создать</string>
+    <string name="dataa">Дата дедлайна (например, 2025-06-15)</string>
 </resources>

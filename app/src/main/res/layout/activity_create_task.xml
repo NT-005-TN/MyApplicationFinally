@@ -3,32 +3,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="@dimen/padding_medium"
+    android:layout_marginTop="160dp">
+
 
     <EditText
         android:id="@+id/etTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Название задачи" />
+        android:hint="Название задачи"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/etDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Описание"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="@dimen/padding_small"
+        android:hint="@string/de"
+        android:inputType="text"
+        android:textColorHint="#546E7A" />
 
     <EditText
         android:id="@+id/etDueDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Дата дедлайна (например, 2025-06-15)"
-        android:layout_marginTop="8dp" />
+        android:hint="@string/dataa"
+        android:layout_marginTop="@dimen/padding_small" />
 
     <Button
         android:id="@+id/btnCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Создать"
-        android:layout_marginTop="16dp" />
+        android:text="@string/cret"
+        android:layout_marginTop="@dimen/padding_medium" />
 </LinearLayout>

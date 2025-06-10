@@ -26,16 +26,20 @@ class StatsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Отобразите статистику
         binding.tvStats.text = "Выполнено задач: ${args.done} из ${args.total}"
 
+        // Постройте список задач
         val builder = StringBuilder()
-        args.tasks.forEach { task ->
+        args.tasks?.forEach { task ->
             val prefix = if (task.isDone) "✅ " else "❌ "
             builder.append(prefix).append(task.title).append("\n")
         }
 
+        // Отобразите список задач
         binding.tvTaskList.text = builder.toString()
 
+        // Обработчик кнопки "Назад"
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
         }

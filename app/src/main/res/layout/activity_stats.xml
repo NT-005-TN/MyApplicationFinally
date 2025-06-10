@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="@dimen/padding_medium">
 
     <TextView
         android:id="@+id/tvStats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Выполнено задач"
+        android:text="@string/complet"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -18,13 +18,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/padding_medium"
         android:textSize="16sp" />
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Назад"
-        android:layout_marginTop="16dp" />
+        android:text="@string/bac"
+        android:layout_marginTop="@dimen/padding_medium" />
 </LinearLayout>
