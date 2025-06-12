@@ -1,3 +1,39 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Планировщик задач</string>
+
+    <string name="title_task_list">Задачи</string>
+    <string name="button_add_task">Добавить задачу</string>
+
+    <string name="title_add_task">Новая задача</string>
+    <string name="hint_task_title">Введите название задачи</string>
+    <string name="hint_task_description">Введите описание задачи</string>
+    <string name="button_save_task">Сохранить</string>
+
+    <string name="title_stats">Статистика</string>
+    <string name="text_total_tasks">Всего задач: </string>
+    <string name="text_completed_tasks">Выполнено задач: </string>
+
+    <string name="text_stats">Статистика</string>
+    <string name="text_main_menu">К задачам</string>
+    <string name="text_deadline">Выберите срок выполнения задачи</string>
+
+    <string name="text_total_tasks_with_value">Всего задач: %d</string>
+    <string name="text_completed_tasks_with_value">Выполнено задач: %d</string>
+    <string name="button_task_added">Задача добавлена!</string>
+
+    <string name="stats_text">Выполнено %1$d из %2$d задач</string>
+    <string name="titleOfTask">Название</string>
+    <string name="description">Описание</string>
+    <string name="data">Дата (ГГГГ-ММ-ДД)</string>
+    <string name="text_create">Создать</string>
+    <string name="text_createTask">Создать задачу</string>
+    <string name="text_statisitcs">Статистика</string>
+    <string name="text_listOfTasks">Список задач</string>
+    <string name="text_back">Назад</string>
+    <string name="headOfList">Шапка списка задач</string>
+    <string name="listOfTasksText">Список задач по названиям</string>
+    <string name="listOfNames">Список названий задач</string>
+    <string name="nameOfTask">Название задачи</string>
+    <string name="Edit">Редактировать</string>
+    <string name="Delete">Удалить</string>
 </resources>
