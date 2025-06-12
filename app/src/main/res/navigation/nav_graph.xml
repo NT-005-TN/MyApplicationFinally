@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/mainFragment">
+
+    <!-- MainFragment -->
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ru.AnastTruh.helloandroid.MainFragment"
+        android:label="Главная"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_createTaskFragment"
+            app:destination="@id/createTaskFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_statsFragment"
+            app:destination="@id/statsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_taskDetailFragment"
+            app:destination="@id/taskDetailFragment" />
+    </fragment>
+
+    <!-- CreateTaskFragment -->
+    <fragment
+        android:id="@+id/createTaskFragment"
+        android:name="ru.AnastTruh.helloandroid.CreateTaskFragment"
+        android:label="Создание задачи"
+        tools:layout="@layout/fragment_create_task">
+        <argument
+            android:name="taskToEdit"
+            app:argType="ru.AnastTruh.helloandroid.Task"
+            app:nullable="true" />
+        <argument
+            android:name="taskPosition"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+    <!-- StatsFragment -->
+    <fragment
+        android:id="@+id/statsFragment"
+        android:name="ru.AnastTruh.helloandroid.StatsFragment"
+        android:label="Статистика"
+        tools:layout="@layout/fragment_stats">
+        <argument
+            android:name="done"
+            app:argType="integer" />
+        <argument
+            android:name="total"
+            app:argType="integer" />
+        <argument
+            android:name="tasks"
+            app:argType="ru.AnastTruh.helloandroid.Task"
+            />
+    </fragment>
+
+    <!-- TaskDetailFragment -->
+    <fragment
+        android:id="@+id/taskDetailFragment"
+        android:name="ru.AnastTruh.helloandroid.TaskDetailFragment"
+        android:label="Детали задачи"
+        tools:layout="@layout/fragment_task_detail">
+        <argument
+            android:name="task"
+            app:argType="ru.AnastTruh.helloandroid.Task" />
+    </fragment>
+</navigation>
